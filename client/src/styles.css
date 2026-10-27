@@ -1,0 +1,543 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap');
+
+:root {
+  --bg: #111311;
+  --card: #1B1F1B;
+  --ink: #F4F0E8;
+  --mute: #A5AAA0;
+  --enamel: #D9F36A;
+  --saffron: #F4A261;
+  --chili: #FF7668;
+  --line: #353A33;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 17px/1.65 'Source Serif 4', Georgia, serif;
+  font-family: 'DM Sans', sans-serif;
+}
+
+h1, h2, h3, .brand {
+font-family: 'Playfair Display', serif;
+}
+
+
+
+btn, .scaler, .qty, label, legend {
+  font-family: 'DM Sans', sans-serif;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+  margin: .2em 0 .35em;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+  margin: 0 0 .5em;
+}
+
+h3 {
+  line-height: 1.25;
+}
+
+p {
+  margin-top: .4rem;
+}
+
+a {
+  color: var(--enamel);
+}
+
+:focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--enamel);
+  color: #111311;
+}
+
+/* Navigation */
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem clamp(1rem, 5vw, 4rem);
+  background: #171A16;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.top a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.top nav {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.top nav a:hover {
+  color: var(--enamel);
+}
+
+.brand {
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -.06em;
+}
+
+main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 4rem clamp(1rem, 5vw, 3rem) 6rem;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-block;
+  background: var(--enamel);
+  color: #111311 !important;
+  border: 1px solid var(--enamel);
+  padding: .7rem 1.2rem;
+  border-radius: 5px;
+  font-weight: 800;
+  font-size: .95rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: #E8FFA0;
+}
+
+.btn.ghost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink) !important;
+}
+
+.btn.ghost:hover {
+  border-color: var(--enamel);
+  color: var(--enamel) !important;
+}
+
+.btn:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.top .btn {
+  color: #111311 !important;
+}
+
+.link {
+  background: none;
+  border: 0;
+  color: var(--enamel);
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
+
+.danger {
+  color: var(--chili) !important;
+  border-color: var(--chili) !important;
+}
+
+.muted {
+  color: var(--mute);
+}
+
+.small {
+  font-size: .85rem;
+}
+
+.error {
+  color: var(--chili);
+  font-weight: 600;
+}
+
+/* Hero and search */
+
+.hero {
+  max-width: 13ch;
+  margin-bottom: 1.5rem;
+}
+
+.hero::first-letter {
+  color: var(--enamel);
+}
+
+.bar {
+  display: flex;
+  gap: .75rem;
+  margin: 2rem 0;
+}
+
+.bar input {
+  flex: 1;
+  min-width: 0;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  padding: .75rem .85rem;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #171A16;
+  color: var(--ink);
+  width: 100%;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #777F74;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--enamel);
+  outline: none;
+  box-shadow: 0 0 0 2px #D9F36A20;
+}
+
+select {
+  width: auto;
+}
+
+.bar select {
+  width: 10rem;
+}
+
+/* Recipe cards */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.2rem;
+}
+
+.card {
+  display: block;
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 7px;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--enamel);
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform .2s ease, border-color .2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--enamel);
+}
+
+.card h2,
+.card h3 {
+  color: var(--ink);
+}
+
+.card p {
+  margin: .4rem 0;
+}
+
+.meta {
+  font-size: .88rem;
+  color: var(--mute);
+}
+
+.stars {
+  color: var(--saffron);
+  white-space: nowrap;
+}
+
+.tag {
+  display: inline-block;
+  background: #D9F36A16;
+  color: var(--enamel);
+  padding: .2rem .65rem;
+  border-radius: 4px;
+  font-size: .82rem;
+  margin-right: .4rem;
+}
+
+/* Pagination */
+
+.pager {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+/* Forms and panels */
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: clamp(1.2rem, 4vw, 2rem);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.narrow {
+  max-width: 460px;
+  margin: 2rem auto;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+  font-weight: 700;
+  font-size: .92rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .8rem;
+}
+
+fieldset {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  padding: 1rem;
+}
+
+legend {
+  padding: 0 .4rem;
+  font-weight: 700;
+}
+
+/* Ingredients */
+
+.ing {
+  display: grid;
+  grid-template-columns: 5rem 6rem 1.4fr 1fr auto;
+  gap: .5rem;
+  align-items: center;
+}
+
+.ing select {
+  width: 100%;
+}
+
+.stepRow {
+  display: flex;
+  gap: .7rem;
+  align-items: flex-start;
+}
+
+.lede {
+  font-size: 1.2rem;
+  max-width: 60ch;
+  color: #C3C9BE;
+}
+
+/* Recipe detail and serving scaler */
+
+.cols {
+  display: grid;
+  grid-template-columns: minmax(280px, 380px) 1fr;
+  gap: 2.5rem;
+  margin-top: 2rem;
+  align-items: start;
+}
+
+.measure {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 1.5rem;
+  border-top: 4px solid var(--enamel);
+  border-radius: 7px;
+  position: sticky;
+  top: 1rem;
+}
+
+.scaler {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  font-weight: 700;
+}
+
+.scaler span {
+  flex: 1;
+  font-size: 1.1rem;
+}
+
+.scaler button {
+  width: 2.5rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--enamel);
+  background: transparent;
+  color: var(--enamel);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.scaler button:hover {
+  background: var(--enamel);
+  color: #111311;
+}
+
+.scaler input {
+  width: 4.5rem;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  font-family: inherit;
+}
+
+.measure ul {
+  list-style: none;
+  margin: 1.2rem 0 0;
+  padding: 0;
+}
+
+.measure li {
+  display: grid;
+  grid-template-columns: 6.2rem 1fr;
+  gap: .7rem;
+  padding: .7rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.qty {
+  font-weight: 800;
+  color: var(--enamel);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.steps {
+  padding-left: 1.4rem;
+  max-width: 65ch;
+}
+
+.steps li {
+  margin-bottom: 1.2rem;
+  padding-left: .4rem;
+}
+
+/* Reviews */
+
+.reviews {
+  margin-top: 3rem;
+  max-width: 700px;
+}
+
+.review {
+  border-top: 1px solid var(--line);
+  padding: 1rem 0;
+}
+
+.starinput button {
+  background: none;
+  border: 0;
+  font-size: 2rem;
+  color: var(--line);
+  cursor: pointer;
+  padding: 0 .1rem;
+}
+
+.starinput .on {
+  color: var(--saffron);
+}
+
+/* Responsive layout */
+
+@media (max-width: 760px) {
+  main {
+    padding-top: 2.5rem;
+  }
+
+  .top {
+    flex-wrap: wrap;
+  }
+
+  .top nav {
+    gap: .8rem;
+    flex-wrap: wrap;
+  }
+
+  .cols {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .measure {
+    position: static;
+  }
+
+  .ing {
+    grid-template-columns: 4rem 5rem 1fr;
+  }
+
+  .ing input:nth-child(4),
+  .ing .link {
+    grid-column: span 3;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .bar {
+    flex-wrap: wrap;
+  }
+
+  .bar select {
+    flex: 1;
+    min-width: 8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
